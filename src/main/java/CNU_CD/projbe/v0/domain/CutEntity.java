@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Table(name="cuts") //jakarta 랑 hibernate 중에 뭐써야하는지..
@@ -15,6 +16,7 @@ import java.sql.Timestamp;
 @Entity
 public class CutEntity {
 
+    //smallint 부분... int 로 써도되는지...
     @Id
     @Column(name="cut_no")
     private int cutNo;
@@ -23,7 +25,7 @@ public class CutEntity {
     @Column(name="user_no")
     private int userNo;
 
-    @JoinColumn(name="post_no")
+    @JoinColumn(name="post_no") // join column //
     @Column(name="post_no")
     private int postNo;
 
@@ -34,7 +36,7 @@ public class CutEntity {
     private int voteNum;
 
     @Column(name="created_time")
-    private Timestamp createdTime;
+    private LocalDateTime createdTime; //맞는건지 모르겠음.. .LocalDateTime 인지 Timestamp
 
     @Column(name="cut_prompt")
     private String cutPrompt;
